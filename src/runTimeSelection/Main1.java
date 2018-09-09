@@ -81,7 +81,7 @@ public class Main1 extends JFrame implements ActionListener {
 		setResizable(false);
 		announce("set title = " + title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 666, 399);
+		setBounds(100, 100, 666, 444);
 		announce("set gui border");
 		announce(" width = " + width);
 		announce(" height = " + height);
@@ -219,6 +219,26 @@ public class Main1 extends JFrame implements ActionListener {
 		goOut1632.setFont(new Font("Tahoma", Font.BOLD, 22));
 		goOut1632.setBounds(318, 295, 99, 40);
 		contentPane.add(goOut1632);
+		
+		JButton button_4 = new JButton("\u0E0B\u0E49\u0E2D\u0E21\u0E01\u0E35\u0E2C\u0E32\u0E2A\u0E35");
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				playSound("sport.wav");
+			}
+		});
+		button_4.setForeground(Color.BLACK);
+		button_4.setFont(new Font("Cordia New", Font.BOLD, 30));
+		button_4.setBackground(Color.WHITE);
+		button_4.setBounds(10, 340, 300, 40);
+		contentPane.add(button_4);
+		
+		JLabel lblPSoontornpas = new JLabel("P. Soontornpas");
+		lblPSoontornpas.setToolTipText("\u0E40\u0E27\u0E25\u0E32\u0E02\u0E2D\u0E07\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E1B\u0E31\u0E08\u0E08\u0E38\u0E1A\u0E31\u0E19");
+		lblPSoontornpas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPSoontornpas.setForeground(Color.WHITE);
+		lblPSoontornpas.setFont(new Font("Cordia New", Font.BOLD, 33));
+		lblPSoontornpas.setBounds(483, 371, 177, 40);
+		contentPane.add(lblPSoontornpas);
 		announce("add text 'mainText'");
 		
 		delayLoadConfig = new DelayLoadConfig();
