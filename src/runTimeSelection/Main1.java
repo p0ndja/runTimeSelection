@@ -180,33 +180,40 @@ public class Main1 extends JFrame implements ActionListener {
 		button_3.setBackground(Color.CYAN);
 		button_3.setBounds(10, 295, 300, 40);
 		contentPane.add(button_3);
+		food1015.setSelected(true);
 		
 		
 		food1015.setFont(new Font("Tahoma", Font.BOLD, 22));
 		food1015.setBounds(318, 163, 99, 40);
 		contentPane.add(food1015);
+		food1256.setSelected(true);
 		
 		food1256.setFont(new Font("Tahoma", Font.BOLD, 22));
 		food1256.setBounds(421, 163, 99, 40);
 		contentPane.add(food1256);
+		food1445.setSelected(true);
 		
 		food1445.setFont(new Font("Tahoma", Font.BOLD, 22));
 		food1445.setBounds(526, 163, 99, 40);
 		contentPane.add(food1445);
+		shoe1255.setSelected(true);
 		
 		
 		shoe1255.setFont(new Font("Tahoma", Font.BOLD, 22));
 		shoe1255.setBounds(318, 207, 99, 40);
 		contentPane.add(shoe1255);
+		closeElectric1541.setSelected(true);
 		
 		closeElectric1541.setFont(new Font("Tahoma", Font.BOLD, 22));
 		closeElectric1541.setBounds(318, 252, 99, 40);
 		contentPane.add(closeElectric1541);
+		closeElectric1631.setSelected(true);
 		
 		
 		closeElectric1631.setFont(new Font("Tahoma", Font.BOLD, 22));
 		closeElectric1631.setBounds(421, 252, 99, 40);
 		contentPane.add(closeElectric1631);
+		goOut1632.setSelected(true);
 		
 		goOut1632.setEnabled(false);
 		goOut1632.setFont(new Font("Tahoma", Font.BOLD, 22));
