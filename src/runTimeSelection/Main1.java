@@ -52,6 +52,9 @@ public class Main1 extends JFrame implements ActionListener {
 	public static JCheckBox closeElectric1631 = new JCheckBox("16.31");
 	
 	public static JCheckBox goOut1632 = new JCheckBox("16.32");
+	
+	public static JCheckBox announce1220 = new JCheckBox("12.20");
+	public static JCheckBox announce1229 = new JCheckBox("12.29");
 
 	
 	public static DelayLoadConfig delayLoadConfig = null;
@@ -239,6 +242,16 @@ public class Main1 extends JFrame implements ActionListener {
 		lblPSoontornpas.setFont(new Font("Cordia New", Font.BOLD, 33));
 		lblPSoontornpas.setBounds(483, 371, 177, 40);
 		contentPane.add(lblPSoontornpas);
+		
+		announce1220.setSelected(true);
+		announce1220.setFont(new Font("Tahoma", Font.BOLD, 22));
+		announce1220.setBounds(318, 340, 99, 40);
+		contentPane.add(announce1220);
+		
+		announce1229.setSelected(true);
+		announce1229.setFont(new Font("Tahoma", Font.BOLD, 22));
+		announce1229.setBounds(419, 340, 99, 40);
+		contentPane.add(announce1229);
 		announce("add text 'mainText'");
 		
 		delayLoadConfig = new DelayLoadConfig();
