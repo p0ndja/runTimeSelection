@@ -31,16 +31,12 @@ import javax.swing.JCheckBox;
 public class Main1 extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 561811103320831759L;
 	private JPanel contentPane;
-	public final int chairSize = 32;
-	public final int chairSizeX = 130;
-	public final int chairSizeY = 100;
-	private JButton btnChair[] = new JButton[chairSize];
 	public ArrayList<JButton> tmpButton = new ArrayList<JButton>();
 	public final String title = "runTime";
 	public final int width = 500;
 	public final int height = 400;
 	public final Color bgcolor = Color.BLACK;
-	public static JLabel timer = new JLabel("--:--:--");
+	public static JLabel timer = new JLabel("Hello World\n");
 	
 	public static JCheckBox food1015 = new JCheckBox("10.15");
 	public static JCheckBox food1256 = new JCheckBox("12.56");
@@ -53,7 +49,7 @@ public class Main1 extends JFrame implements ActionListener {
 	
 	public static JCheckBox goOut1632 = new JCheckBox("16.32");
 	
-	public static JCheckBox announce1220 = new JCheckBox("12.20");
+	public static JCheckBox announce1221 = new JCheckBox("12.21");
 	public static JCheckBox announce1229 = new JCheckBox("12.29");
 
 	
@@ -243,10 +239,10 @@ public class Main1 extends JFrame implements ActionListener {
 		lblPSoontornpas.setBounds(483, 371, 177, 40);
 		contentPane.add(lblPSoontornpas);
 		
-		announce1220.setSelected(true);
-		announce1220.setFont(new Font("Tahoma", Font.BOLD, 22));
-		announce1220.setBounds(318, 340, 99, 40);
-		contentPane.add(announce1220);
+		announce1221.setSelected(true);
+		announce1221.setFont(new Font("Tahoma", Font.BOLD, 22));
+		announce1221.setBounds(318, 340, 99, 40);
+		contentPane.add(announce1221);
 		
 		announce1229.setSelected(true);
 		announce1229.setFont(new Font("Tahoma", Font.BOLD, 22));

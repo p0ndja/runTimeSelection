@@ -84,12 +84,14 @@ public class DelayLoadConfig implements Runnable {
 			
 			//Sport Day Period
 			//==========================================================\\
-			if (Time.equalsIgnoreCase("12:20:00") && Main1.announce1220.isSelected() == true) {
-				Main1.announce("Run sport.wav as scheduled at 12:20:00");
+			if (Time.equalsIgnoreCase("12:21:00") && Main1.announce1221.isSelected() == true) {
+				Main1.announce("Run sport.wav as scheduled at 12:21:00");
+				Main1.playSound("sport.wav");
 				//Main1.playSound("Leave_BUILDING.wav");
 			}
 			if (Time.equalsIgnoreCase("12:29:00") && Main1.announce1229.isSelected() == true) {
 				Main1.announce("Run sport.wav as scheduled at 12:29:00");
+				Main1.playSound("sport.wav");
 				//Main1.playSound("Leave_BUILDING.wav");
 			}
 			//==========================================================\\
