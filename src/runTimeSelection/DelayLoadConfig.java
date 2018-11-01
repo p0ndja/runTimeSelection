@@ -29,11 +29,13 @@ public class DelayLoadConfig implements Runnable {
 				e.printStackTrace();
 			}
 
-			DateFormat normalDateFormat = new SimpleDateFormat("HH:mm:ss");
 			Date date = new Date();
-			Time = normalDateFormat.format(date);
+			Time = new SimpleDateFormat("HH:mm:ss").format(date);
+			String month = new SimpleDateFormat("dd/MM/YYYY").format(date);
 			Main1.timer.setText(Time);
 			Main1.timer_shadow.setText(Time);
+			Main1.date.setText(month);
+			Main1.label.setText(month);
 
 			// noFood Period
 			// ==========================================================\\
