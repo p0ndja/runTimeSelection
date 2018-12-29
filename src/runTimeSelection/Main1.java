@@ -8,20 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.util.ArrayList;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-
 import javax.swing.SwingConstants;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
@@ -35,7 +27,6 @@ import java.net.URISyntaxException;
 import java.security.CodeSource;
 
 import sun.audio.*;
-import javax.swing.JTextField;
 
 public class Main1 extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 561811103320831759L;
