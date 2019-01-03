@@ -17,16 +17,14 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.security.CodeSource;
-
-import sun.audio.*;
+import javax.swing.JTextField;
 
 public class Main1 extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 561811103320831759L;
@@ -55,11 +53,11 @@ public class Main1 extends JFrame implements ActionListener {
 
 	public static JCheckBox goOut1632 = new JCheckBox("16.32");
 
-	public static JCheckBox announce1221 = new JCheckBox("12.21");
-	public static JCheckBox announce1229 = new JCheckBox("12.29");
+	public static JCheckBox announce1221 = new JCheckBox("");
+	public static JCheckBox announce1229 = new JCheckBox("");
 
-	public static JCheckBox r0830 = new JCheckBox("8.30");
-	public static JCheckBox r0920 = new JCheckBox("9.20");
+	public static JCheckBox r0830 = new JCheckBox("08.30");
+	public static JCheckBox r0920 = new JCheckBox("09.20");
 	public static JCheckBox r1010 = new JCheckBox("10.10");
 	public static JCheckBox r1020 = new JCheckBox("10.20");
 	public static JCheckBox r1110 = new JCheckBox("11.10");
@@ -92,6 +90,12 @@ public class Main1 extends JFrame implements ActionListener {
 	private final JButton line2 = new JButton("");
 	private final JLabel bg = new JLabel("");
 	private final JButton txtV;
+	
+	public static JTextField textField = new JTextField("00.00");
+	public static JTextField textField_1 = new JTextField("00.00");
+	
+	public static JButton button_4 = new JButton(
+			"\u0E01\u0E23\u0E38\u0E13\u0E32\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E44\u0E1F\u0E25\u0E4C");
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -143,24 +147,18 @@ public class Main1 extends JFrame implements ActionListener {
 		contentPane.add(label);
 		date.setBackground(Color.WHITE);
 
-		date.setToolTipText(
-				"\u0E40\u0E27\u0E25\u0E32\u0E02\u0E2D\u0E07\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E1B\u0E31\u0E08\u0E08\u0E38\u0E1A\u0E31\u0E19");
 		date.setHorizontalAlignment(SwingConstants.CENTER);
 		date.setForeground(Color.BLACK);
 		date.setFont(new Font("Cordia New", Font.BOLD, 45));
 		date.setBounds(3, 38, 280, 70);
 		contentPane.add(date);
 
-		timer.setToolTipText(
-				"\u0E40\u0E27\u0E25\u0E32\u0E02\u0E2D\u0E07\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E1B\u0E31\u0E08\u0E08\u0E38\u0E1A\u0E31\u0E19");
 		timer.setHorizontalAlignment(SwingConstants.CENTER);
 		timer.setFont(new Font("Cordia New", Font.BOLD, 66));
 		timer.setForeground(Color.WHITE);
 		timer.setBounds(-55, -36, 400, 129);
 		contentPane.add(timer);
 
-		timer_shadow.setToolTipText(
-				"\u0E40\u0E27\u0E25\u0E32\u0E02\u0E2D\u0E07\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E1B\u0E31\u0E08\u0E08\u0E38\u0E1A\u0E31\u0E19");
 		timer_shadow.setHorizontalAlignment(SwingConstants.CENTER);
 		timer_shadow.setForeground(new Color(0, 0, 0));
 		timer_shadow.setFont(new Font("Cordia New", Font.BOLD, 66));
@@ -181,7 +179,6 @@ public class Main1 extends JFrame implements ActionListener {
 		button.setBackground(Color.DARK_GRAY);
 		button.setBounds(14, 190, 300, 36);
 		button.setOpaque(false);
-		button.setContentAreaFilled(false);
 		button.setBorderPainted(false);
 		contentPane.add(button);
 
@@ -197,15 +194,14 @@ public class Main1 extends JFrame implements ActionListener {
 		under_button.setBorder(null);
 		under_button.setBackground(new Color(0, 0, 0, 99));
 		under_button.setBounds(14, 190, 300, 36);
-
 		contentPane.add(under_button);
+		
 		button_1.setForeground(Color.WHITE);
 		button_1.setFont(new Font("Cordia New", Font.BOLD, 30));
 		button_1.setBounds(14, 145, 300, 36);
 		button_1.setBackground(Color.DARK_GRAY);
 		button_1.setBorder(null);
 		button_1.setOpaque(false);
-		button_1.setContentAreaFilled(false);
 		button_1.setBorderPainted(false);
 		contentPane.add(button_1);
 
@@ -228,7 +224,6 @@ public class Main1 extends JFrame implements ActionListener {
 		button_2.setBorder(null);
 		button_2.setBounds(14, 235, 300, 36);
 		button_2.setOpaque(false);
-		button_2.setContentAreaFilled(false);
 		button_2.setBorderPainted(false);
 		contentPane.add(button_2);
 
@@ -322,8 +317,6 @@ public class Main1 extends JFrame implements ActionListener {
 		goOut1632.setBounds(318, 280, 99, 40);
 		contentPane.add(goOut1632);
 
-		JButton button_4 = new JButton(
-				"\u0E01\u0E23\u0E38\u0E13\u0E32\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E44\u0E1F\u0E25\u0E4C");
 		button_4.setEnabled(false);
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -337,7 +330,6 @@ public class Main1 extends JFrame implements ActionListener {
 		button_4.setBorder(null);
 		button_4.setBounds(14, 325, 264, 36);
 		button_4.setOpaque(false);
-		button_4.setContentAreaFilled(false);
 		button_4.setBorderPainted(false);
 		contentPane.add(button_4);
 		under_button4.setEnabled(false);
@@ -346,6 +338,17 @@ public class Main1 extends JFrame implements ActionListener {
 		under_button4.setBounds(14, 325, 264, 36);
 
 		contentPane.add(under_button4);
+		
+		textField.setFont(new Font("Tahoma", Font.BOLD, 22));
+		textField.setBounds(340, 327, 77, 36);
+		textField.setColumns(10);
+		contentPane.add(textField);
+		
+		textField_1.setFont(new Font("Tahoma", Font.BOLD, 22));
+		textField_1.setColumns(10);
+		textField_1.setBounds(449, 326, 77, 36);
+		
+		contentPane.add(textField_1);
 
 		announce1221.setSelected(true);
 		announce1221.setFont(new Font("Tahoma", Font.BOLD, 22));
@@ -410,7 +413,6 @@ public class Main1 extends JFrame implements ActionListener {
 		button_5.setFont(new Font("Cordia New", Font.BOLD, 30));
 		button_5.setBackground(Color.DARK_GRAY);
 		button_5.setOpaque(false);
-		button_5.setContentAreaFilled(false);
 		button_5.setBorderPainted(true);
 		button_5.setBounds(18, 382, 221, 31);
 		contentPane.add(button_5);
@@ -517,7 +519,6 @@ public class Main1 extends JFrame implements ActionListener {
 		btnRhythm.setFont(new Font("Cordia New", Font.BOLD, 30));
 		btnRhythm.setBackground(Color.DARK_GRAY);
 		btnRhythm.setOpaque(false);
-		btnRhythm.setContentAreaFilled(false);
 		btnRhythm.setBorderPainted(true);
 		btnRhythm.setBounds(249, 382, 194, 31);
 		contentPane.add(btnRhythm);
@@ -543,7 +544,6 @@ public class Main1 extends JFrame implements ActionListener {
 		btnRhythm_1.setFont(new Font("Cordia New", Font.BOLD, 30));
 		btnRhythm_1.setBackground(Color.DARK_GRAY);
 		btnRhythm_1.setOpaque(false);
-		btnRhythm_1.setContentAreaFilled(false);
 		btnRhythm_1.setBorderPainted(true);
 		btnRhythm_1.setBounds(249, 417, 194, 31);
 		contentPane.add(btnRhythm_1);
@@ -569,7 +569,6 @@ public class Main1 extends JFrame implements ActionListener {
 		btnRhythm_2.setFont(new Font("Cordia New", Font.BOLD, 30));
 		btnRhythm_2.setBackground(Color.DARK_GRAY);
 		btnRhythm_2.setOpaque(false);
-		btnRhythm_2.setContentAreaFilled(false);
 		btnRhythm_2.setBorderPainted(true);
 		btnRhythm_2.setBounds(249, 452, 194, 31);
 		contentPane.add(btnRhythm_2);
@@ -647,11 +646,10 @@ public class Main1 extends JFrame implements ActionListener {
 		});
 		thai.setForeground(Color.WHITE);
 		thai.setFont(new Font("Cordia New", Font.BOLD, 30));
-		thai.setBorder(null);
 		thai.setBackground(Color.DARK_GRAY);
 		thai.setBounds(14, 100, 300, 36);
+		thai.setBorder(null);
 		thai.setOpaque(false);
-		thai.setContentAreaFilled(false);
 		thai.setBorderPainted(false);
 		contentPane.add(thai);
 
@@ -695,7 +693,6 @@ public class Main1 extends JFrame implements ActionListener {
 		button_18.setBackground(Color.DARK_GRAY);
 		button_18.setBounds(277, 325, 36, 36);
 		button_18.setOpaque(false);
-		button_18.setContentAreaFilled(false);
 		button_18.setBorderPainted(false);
 		contentPane.add(button_18);
 		under_button18.setEnabled(false);
@@ -705,7 +702,7 @@ public class Main1 extends JFrame implements ActionListener {
 
 		contentPane.add(under_button18);
 		
-		txtV = new JButton("0.6 BETA");
+		txtV = new JButton("v7 GOLF"); //https://www.osric.com/chris/phonetic.html
 		txtV.setBorder(null);
 		txtV.setBackground(new Color(0,0,0,0));
 		txtV.setForeground(new Color(105, 105, 105));
@@ -777,20 +774,21 @@ public class Main1 extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 	}
 
-	@SuppressWarnings("restriction")
-	public static void soundDir(String string) {	
-		String gongFile = string;
-		InputStream in;
-		try {
-			in = new FileInputStream(gongFile);
-			AudioStream stream = new AudioStream(in);
-			AudioPlayer.player.start(stream);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public static synchronized void soundDir(final String url) {
+		  new Thread(new Runnable() {
+		  // The wrapper thread is unnecessary, unless it blocks on the
+		  // Clip finishing; see comments.
+		    public void run() {
+		      try {
+		        Clip clip = AudioSystem.getClip();
+		        AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+		        Main1.class.getResourceAsStream("/path/to/sounds/" + url));
+		        clip.open(inputStream);
+		        clip.start(); 
+		      } catch (Exception e) {
+		        System.err.println(e.getMessage());
+		      }
+		    }
+		  }).start();
 		}
-	}
 }

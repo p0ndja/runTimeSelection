@@ -8,6 +8,8 @@ public class DelayLoadConfig implements Runnable {
 	private boolean isRunning = true;
 
 	public static String Time;
+	public static String Time1;
+	public static String Time2;
 
 	public boolean isRunning() {
 		return isRunning;
@@ -29,6 +31,8 @@ public class DelayLoadConfig implements Runnable {
 			}
 
 			Date date = new Date();
+			Time2 = new SimpleDateFormat("ss").format(date);
+			Time1 = new SimpleDateFormat("HH.mm").format(date);
 			Time = new SimpleDateFormat("HH:mm:ss").format(date);
 			String month = new SimpleDateFormat("dd/MM/YYYY").format(date);
 			Main1.timer.setText(Time);
@@ -73,10 +77,10 @@ public class DelayLoadConfig implements Runnable {
 
 			// Sport Day Period
 			// ==========================================================\\
-			if ((Time.equalsIgnoreCase("12:21:00") && Main1.announce1221.isSelected())
-					|| (Time.equalsIgnoreCase("12:29:00") && Main1.announce1229.isSelected())) {
-				Main1.announce("Run sport.wav as scheduled.");
-				Main1.soundDir( Main1.jarDir +"sport.wav");
+			if (((Time1.equalsIgnoreCase(Main1.textField.getText()) && Main1.announce1221.isSelected())
+					|| (Time1.equalsIgnoreCase(Main1.textField_1.getText()) && Main1.announce1229.isSelected())) && Main1.button_4.isEnabled() && Time2.equalsIgnoreCase("00")) {
+				Main1.announce("Run special clock as scheduled.");
+				Main1.soundDir(Main1.chooser.toString());
 			}
 			// ==========================================================\\
 
