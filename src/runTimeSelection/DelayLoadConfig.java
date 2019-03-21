@@ -10,6 +10,7 @@ public class DelayLoadConfig implements Runnable {
 	public static String Time;
 	public static String Time1;
 	public static String Time2;
+	public static String Time3;
 
 	public boolean isRunning() {
 		return isRunning;
@@ -26,11 +27,11 @@ public class DelayLoadConfig implements Runnable {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 			Date date = new Date();
+			Time3 = new SimpleDateFormat("HH").format(date);
 			Time2 = new SimpleDateFormat("ss").format(date);
 			Time1 = new SimpleDateFormat("HH.mm").format(date);
 			Time = new SimpleDateFormat("HH:mm:ss").format(date);
@@ -40,13 +41,27 @@ public class DelayLoadConfig implements Runnable {
 			Main1.date.setText(month);
 			Main1.label.setText(month);
 
+			if (Float.parseFloat(Time1) >= 8.20) {
+				if (Main1.switcher == false) {
+					Main1.button_2.setEnabled(true);
+					Main1.button_1.setEnabled(true);
+					Main1.button.setEnabled(true);
+					Main1.under_button.setEnabled(true);
+					Main1.under_button1.setEnabled(true);
+					Main1.under_button2.setEnabled(true);
+					Main1.switcher = true;
+				}
+			}
+			
+			
 			// noFood Period
 			// ==========================================================\\
-			if ((Time.equalsIgnoreCase("10:15:00") && Main1.food1015.isSelected())
+			if ((Time.equalsIgnoreCase("12:01:00") && Main1.food1201.isSelected())
+					|| (Time.equalsIgnoreCase("10:15:00") && Main1.food1015.isSelected())
 					|| (Time.equalsIgnoreCase("12:56:00") && Main1.food1256.isSelected())
 					|| (Time.equalsIgnoreCase("14:45:00") && Main1.food1445.isSelected())) {
 				Main1.announce("Run noFood.wav as scheduled.");
-				Main1.soundDir( Main1.jarDir +"No_FOOD.wav");
+				Main1.soundDir("No_FOOD.wav");
 			}
 			// ==========================================================\\
 
@@ -54,7 +69,7 @@ public class DelayLoadConfig implements Runnable {
 			// ==========================================================\\
 			if (Time.equalsIgnoreCase("12:55:00") && Main1.shoe1255.isSelected()) {
 				Main1.announce("Run noShoe.wav as scheduled.");
-				Main1.soundDir( Main1.jarDir +"No_SHOE.wav");
+				Main1.soundDir("No_SHOE.wav");
 			}
 			// ==========================================================\\
 
@@ -63,7 +78,7 @@ public class DelayLoadConfig implements Runnable {
 			if ((Time.equalsIgnoreCase("15:41:00") && Main1.closeElectric1541.isSelected())
 					|| (Time.equalsIgnoreCase("16:31:00") && Main1.closeElectric1631.isSelected())) {
 				Main1.announce("Run closeElectric.wav as scheduled.");
-				Main1.soundDir( Main1.jarDir +"Close_ELEC.wav");
+				Main1.soundDir("Close_ELEC.wav");
 			}
 			// ==========================================================\\
 
@@ -77,8 +92,17 @@ public class DelayLoadConfig implements Runnable {
 
 			// Sport Day Period
 			// ==========================================================\\
-			if (((Time1.equalsIgnoreCase(Main1.textField.getText()) && Main1.announce1221.isSelected())
-					|| (Time1.equalsIgnoreCase(Main1.textField_1.getText()) && Main1.announce1229.isSelected())) && Main1.button_4.isEnabled() && Time2.equalsIgnoreCase("00")) {
+			if (Main1.a_h.getText().length() == 1) {
+				Main1.a_h.setText("0" + Main1.a_h.getText());
+			}
+			if (Main1.b_h.getText().length() == 1) {
+				Main1.b_h.setText("0" + Main1.b_h.getText());
+			}
+			String timeA = Main1.a_h.getText() + "." + Main1.a_m.getText();
+			String timeB = Main1.b_h.getText() + "." + Main1.b_m.getText();
+			if (((Time1.equalsIgnoreCase(timeA) && Main1.announce1221.isSelected())
+					|| (Time1.equalsIgnoreCase(timeB) && Main1.announce1229.isSelected())) && Main1.button_4.isEnabled()
+					&& Time2.equalsIgnoreCase("00") && !(Time.equalsIgnoreCase("00.00"))) {
 				Main1.announce("Run special clock as scheduled.");
 				Main1.soundDir(Main1.chooser.toString());
 			}
@@ -96,7 +120,7 @@ public class DelayLoadConfig implements Runnable {
 					|| (Time.equalsIgnoreCase("14:40:00") && Main1.r1440.isSelected())
 					|| (Time.equalsIgnoreCase("14:50:00") && Main1.r1450.isSelected())) {
 				Main1.announce("Run Rhythm_1.wav as scheduled.");
-				Main1.soundDir( Main1.jarDir +"Rhythm_1.wav");
+				Main1.soundDir("Rhythm_1.wav");
 			}
 			// ==========================================================\\
 
@@ -104,7 +128,7 @@ public class DelayLoadConfig implements Runnable {
 			// ==========================================================\\
 			if (Time.equalsIgnoreCase("12:00:00") && Main1.r1200.isSelected()) {
 				Main1.announce("Run Rhythm_2.wav (lunch) as scheduled.");
-				Main1.soundDir( Main1.jarDir +"Rhythm_2.wav");
+				Main1.soundDir("Rhythm_2.wav");
 			}
 			// ==========================================================\\
 
@@ -112,7 +136,7 @@ public class DelayLoadConfig implements Runnable {
 			// ==========================================================\\
 			if (Time.equalsIgnoreCase("15:40:00") && Main1.r1540.isSelected()) {
 				Main1.announce("Run Rhythm_3.wav (go back home #1) as scheduled.");
-				Main1.soundDir( Main1.jarDir +"Rhythm_3.wav");
+				Main1.soundDir("Rhythm_3.wav");
 			}
 			// ==========================================================\\
 
@@ -120,7 +144,7 @@ public class DelayLoadConfig implements Runnable {
 			// ==========================================================\\
 			if (Time.equalsIgnoreCase("16:30:00") && Main1.r1630.isSelected()) {
 				Main1.announce("Run Rhythm_4.wav (go back home #2) as scheduled.");
-				Main1.soundDir(Main1.jarDir +"Rhythm_4.wav");
+				Main1.soundDir("Rhythm_4.wav");
 			}
 			// ==========================================================\\
 
